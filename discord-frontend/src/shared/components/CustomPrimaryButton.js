@@ -21,7 +21,7 @@ const CustomPrimaryButton = ({
       }}
       style={additionalStyles ? additionalStyles : {}}
       disabled={disabled}
-      onCLick={onClick}
+      onClick={onClick}
     >
       {label}
     </Button>
