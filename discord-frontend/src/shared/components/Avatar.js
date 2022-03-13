@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/system';
+import { Typography } from '@mui/material';
 
 
 const AvatarPreview = styled('div')({
@@ -14,7 +15,7 @@ const AvatarPreview = styled('div')({
     fontWeight:'700',
     marginLeft:'5px',
     color:'white'
-})
+});
 
 const Avatar = ({username, large}) => {
   return (

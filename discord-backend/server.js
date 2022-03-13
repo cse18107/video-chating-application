@@ -3,7 +3,12 @@ const http = require('http');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
+
+
 const authRoutes = require('./routes/authRoutes');
+const friendInvitationRoutes = require('./routes/friendInvitationRoutes.js');
+const socketServer = require('./socketServer');
+
 
 const PORT = process.env.PORT || process.env.API_PORT;
 
@@ -12,8 +17,10 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/auth',authRoutes);
+app.use('/api/friend-invitation',friendInvitationRoutes);
 
 const server = http.createServer(app);
+socketServer.registerSocketServer(server);
 
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
