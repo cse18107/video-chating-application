@@ -1,8 +1,32 @@
-const postInvite = async(req,res) => {
-    const { targetMailAddress } = req.body;
+const User = require("../../models/user");
 
-    const { userId, mail } = req.user;
+const postInvite = async (req, res) => {
+  const { targetMailAddress } = req.body;
 
-    return res.send('Controller is working');
-}
+  const { userId, mail } = req.user;
+
+  // check if friend that we would like to invite is not user
+  if (mail.toLowerCase() === targetMailAddress.toLowerCase()) {
+    return res
+      .status(409)
+      .send("Sorry, You cannot become friend with yourself");
+  }
+
+  const targetUser = await User.findOne({
+    mail: targetMailAddress.toLowerCase(),
+  });
+
+  if (!targetUser) {
+    res
+      .status(404)
+      .send(
+        `friend of ${targetMailAddress} has not been found. Please check mail address`
+      );
+  }
+
+  // Check if invitation has been already sent
+  
+
+  return res.send("Controller is working");
+};
 module.exports = postInvite;
