@@ -13,7 +13,7 @@ const PendingInvitationListItem = ({
   rejectFriendInvitation = () => {},
 }) => {
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
-
+console.log(username)
   const handleAcceptInvitation = () => {
     acceptFriendInvitation({ id });
     setButtonsDisabled(true);

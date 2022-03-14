@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 import AddFriendButton from './AddFriendButton';
 import FriendsTitle from './FriendsTitle';
 import FriendsList from './FriendsList/FriendsList';
-import { PendingInvitationList } from './PendingInvitationList/PendingInvitationList';
+import  PendingInvitationList  from './PendingInvitationList/PendingInvitationList';
 
 const MainContainer = styled('div')({
   width:'224px',

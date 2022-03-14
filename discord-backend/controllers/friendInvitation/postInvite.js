@@ -34,7 +34,7 @@ const postInvite = async (req, res) => {
   });
 
   if (invitationAlreadyReceived) {
-    res.status(409).send("Invitation has been already send");
+    return res.status(409).send("Invitation has been already send");
   }
 
   // checks if the uer which we would like to invite is already our friend
@@ -43,7 +43,7 @@ const postInvite = async (req, res) => {
   );
 
   if (userAlreadyFriends) {
-    res.status(409).send("Friend already added. Please check friends list");
+    return res.status(409).send("Friend already added. Please check friends list");
   }
 
 
