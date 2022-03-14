@@ -28,6 +28,7 @@ const login = (userDetails, navigate) => {
       .login(userDetails)
       .then((response) => {
         res = response;
+        
         if (res.error) {
           dispatch(openAlertMessage(res?.exception?.response?.data?.message));
         } else {
@@ -54,12 +55,14 @@ const register = (userDetails, navigate) => {
         
         res = response;
         if(res.error){
-            dispatch(openAlertMessage(res?.exception?.response?.data?.message));
+            dispatch(openAlertMessage(res?.exception?.message));
+        }else{
+          const { userDetails } = response?.data;
+          localStorage.setItem("user", JSON.stringify(userDetails));
+          dispatch(setUserDetails(userDetails));
+          navigate("/dashboard");
         }
-        const { userDetails } = response?.data;
-        localStorage.setItem("user", JSON.stringify(userDetails));
-        dispatch(setUserDetails(userDetails));
-        navigate("/dashboard");
+
       })
       .catch((error) => {
         // show error message

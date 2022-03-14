@@ -1,5 +1,5 @@
 const User = require("../../models/user");
-
+const FriendInvitation = require("../../models/friendInvitation");
 const postInvite = async (req, res) => {
   const { targetMailAddress } = req.body;
 
@@ -25,8 +25,36 @@ const postInvite = async (req, res) => {
   }
 
   // Check if invitation has been already sent
-  
+  const invitationAlreadyReceived = await FriendInvitation.findOne({
+    senderId: userId,
+    receiverId: targetUser._id,
+  });
 
-  return res.send("Controller is working");
+  if (invitationAlreadyReceived) {
+    res.status(409).send("Invitation has been already send");
+  }
+
+  // checks if the uer which we would like to invite is already our friend
+  const userAlreadyFriends = targetUser.friends.find(
+    (friendId) => friendId.toString() === userId.toString()
+  );
+
+  if (userAlreadyFriends) {
+    res.status(409).send("Friend already added. Please check friends list");
+  }
+
+
+  // Create new invitation in database
+  try {
+    const newInvitation = await FriendInvitation.create({
+      senderId: userId,
+      receiverId: targetUser._id,
+    });
+    res.status(201).send("Invitation has been sent");
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+
+  // if invitation has been successfully created we would like to update friends invitation if other user is online
 };
 module.exports = postInvite;
