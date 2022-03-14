@@ -4,6 +4,9 @@ import { Box } from "@mui/system";
 import Avatar from "../../../shared/components/Avatar";
 import Typography from "@mui/material/Typography";
 import InvitationDecisionButtons from "./InvitationDecisionButtons";
+import { connect } from 'react-redux';
+import { getActions } from '../../../store/actions/friendsActions'
+
 
 const PendingInvitationListItem = ({
   id,
@@ -61,4 +64,11 @@ console.log(username)
   );
 };
 
-export default PendingInvitationListItem;
+
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  }
+}
+
+export default connect(null,mapActionsToProps)(PendingInvitationListItem);
