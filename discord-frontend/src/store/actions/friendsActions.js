@@ -24,6 +24,13 @@ export const setPendingFriendsInvitations = (pendingFriendsInvitations) =>{
   }
 }
 
+export const setFriends = (friends) => {
+  return {
+    type: friendsActions.SET_FRIENDS,
+    friends
+  }
+}
+
 
 const sendFriendInvitation = (data, closeDialogHandler) => {
   return async (dispatch) => {
