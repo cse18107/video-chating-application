@@ -29,6 +29,13 @@ export const setFriends = (friends) => {
     type: friendsActions.SET_FRIENDS,
     friends
   }
+};
+
+export const setOnlineUsers = (onlineUsers) => {
+  return {
+    type: friendsActions.SET_ONLINE_USERS,
+    onlineUsers,
+  }
 }
 
 
