@@ -6,7 +6,7 @@ const DUMMY_MESSAGES = [
       author: {
         username: "Marek",
       },
-      date: "22/01/2022",
+      date: "01/22/2022",
       sameDay: false,
     },
     {
@@ -16,7 +16,7 @@ const DUMMY_MESSAGES = [
       author: {
         username: "Marek",
       },
-      date: "22/01/2022",
+      date: "01/22/2022",
       sameDay: true,
     },
     {
@@ -26,7 +26,7 @@ const DUMMY_MESSAGES = [
       author: {
         username: "Marek",
       },
-      date: "23/01/2022",
+      date: "01/23/2022",
       sameDay: false,
     },
     {
@@ -36,7 +36,7 @@ const DUMMY_MESSAGES = [
       author: {
         username: "John",
       },
-      date: "23/01/2022",
+      date: "01/23/2022",
       sameDay: true,
     },
     {
@@ -46,7 +46,7 @@ const DUMMY_MESSAGES = [
       author: {
         username: "John",
       },
-      date: "24/01/2022",
+      date: "01/24/2022",
       sameDay: false,
     },
   ];

@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const postRegister = async(req,res,next)=>{
     try{
         const { username, mail, password} = req.body;
-        console.log(req);
+        // console.log(req);
         
         // check if user exists
         const userExists = await User.exists({mail:mail.toLowerCase()});
@@ -45,6 +45,7 @@ const postRegister = async(req,res,next)=>{
               mail: user.mail,
               token: token,
               username: user.username,
+              _id:user._id,
             },
           });
 

@@ -1,6 +1,9 @@
 import React from 'react'
 import MainPageButton from './MainPageButton';
 import { styled } from '@mui/system';
+import CreateRoomButton from './CreateRoomButton.js';
+import { connect } from 'react-redux';
+import ActiveRoomButton from './ActiveRoomButton.js';
 
 const MainContainer = styled('div')({
   width:'72px',
@@ -11,12 +14,33 @@ const MainContainer = styled('div')({
   backgroundColor: '#202225'
 })
 
-const SideBar = () => {
+const SideBar = ({activeRooms, isUserInRoom}) => {
+  // console.log(activeRooms)
   return (
     <MainContainer>
         <MainPageButton/>
+        <CreateRoomButton/>
+        {activeRooms.map(room => {
+          
+          return  <ActiveRoomButton
+            roomId={room.roomId}
+            creatorUsername={room.creatorUsername}
+            amountOfParticipants={room.participants.length}
+            key={room.roomId}
+            isUserInRoom={isUserInRoom}
+          />})
+
+          
+        }
     </MainContainer>
   )
+};
+
+const mapStoreStateToProps = ({ room }) => {
+  // console.log(room.activeRooms)
+  return {
+    ...room,
+  }
 }
 
-export default SideBar
+export default connect(mapStoreStateToProps)(SideBar);

@@ -7,6 +7,7 @@ const initState = {
 };
 
 const reducer = (state = initState, action) => {
+
     switch(action.type){
         case chatActions.SET_CHOSEN_CHAT_DETAILS:
             return {

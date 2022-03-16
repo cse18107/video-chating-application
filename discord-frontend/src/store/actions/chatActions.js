@@ -25,6 +25,7 @@ export const setChosenChatDetails = (chatDetails,type) => {
 };
 
 export const setMessages = (messages) => {
+
     return {
         type: chatActions.SET_MESSAGES,
         messages

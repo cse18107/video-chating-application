@@ -1,5 +1,7 @@
 const Message = require('../models/message');
 const Conversation = require('../models/conversation');
+const chatUpdates = require('./updates/chat');
+
 
 const directMessageHandler = async (socket,data) => {
     try{
@@ -29,14 +31,13 @@ const directMessageHandler = async (socket,data) => {
         }else{
             // create new conversation if not exist
             const newConversation = await Conversation.create({
-                message:[message._id],
+                messages:[message._id],
                 participants:[userId,receiverUserId],
             });
 
             //perform and update to sender and receiver if is online
-            chatUpdates.updateChatHistory(conversation._id.toString());
+            chatUpdates.updateChatHistory(newConversation._id.toString());
         }
-
     }catch (err) {
         console.log(err);
     }
