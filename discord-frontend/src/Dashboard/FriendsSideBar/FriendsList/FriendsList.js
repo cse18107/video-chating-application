@@ -47,7 +47,7 @@ const FriendsList = ({friends, onlineUsers}) => {
         {checkOnlineUsers(friends,onlineUsers).map(f => {
             return <FriendsListItem
             username={f.username}
-            // id={f.id}
+            id={f.id}
             key={f.id}
             isOnline={f.isOnline}
             />
