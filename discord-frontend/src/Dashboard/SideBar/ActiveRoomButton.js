@@ -2,6 +2,7 @@ import { Tooltip } from '@mui/material';
 import React from 'react';
 import Button from '@mui/material/Button';
 import Avatar from '../../shared/components/Avatar';
+import * as roomHandler from '../../realTimeComunication/roomHandler'
 
 const ActiveRoomButton = ({
     creatorUsername,
@@ -11,7 +12,7 @@ const ActiveRoomButton = ({
 }) => {
     const handleJoinActiveRoom = () => {
         if(amountOfParticipants<4) {
-            // join Room
+            roomHandler.joinRoom(roomId);
         }
     }
 

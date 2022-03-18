@@ -21,7 +21,6 @@ const SideBar = ({activeRooms, isUserInRoom}) => {
         <MainPageButton/>
         <CreateRoomButton/>
         {activeRooms.map(room => {
-          
           return  <ActiveRoomButton
             roomId={room.roomId}
             creatorUsername={room.creatorUsername}
