@@ -9,7 +9,6 @@ import { getActions } from '../../store/actions/roomActions';
 import { connect  } from 'react-redux';
 
 const DropdownMenu = ({ audioOnly, setAudioOnly }) => {
-  console.log(setAudioOnly)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleMenuOpen = (event) => {
@@ -49,7 +48,6 @@ const DropdownMenu = ({ audioOnly, setAudioOnly }) => {
 };
 
 const mapStoreStateToProps = ({ room }) => {
-  console.log(room);
   return {
     ...room,
   }

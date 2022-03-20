@@ -47,6 +47,8 @@ export const joinRoom = (roomId) => {
     socketConnection.joinRoom({ roomId });
   };
 
+  webRTCHandler.closeAllConnections();
+
   const audioOnly = store.getState().room.audioOnly;
 
   webRTCHandler.getLocalStreamPreview(audioOnly,successCallbackFunc);

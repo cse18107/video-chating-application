@@ -51,4 +51,11 @@ export const setAudioOnly = (audioOnly) => {
     type: roomActions.SET_AUDIO_ONLY,
     audioOnly,
   }
-}
+};
+
+export const setRemoteStreams = (remoteStreams) => {
+  return {
+    type: roomActions.SET_REMOTE_STREAMS,
+    remoteStreams
+  };
+};
