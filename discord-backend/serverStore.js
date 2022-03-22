@@ -80,7 +80,11 @@ const getActiveRoom = (roomId) => {
     (activeRoom) => activeRoom.roomId === roomId
   );
 
-  return { ...activeRoom };
+  if (activeRoom) {
+    return { ...activeRoom };
+  }else {
+    return null;
+  }
 };
 
 const joinActiveRoom = (roomId, newParticipant) => {
@@ -94,7 +98,6 @@ const joinActiveRoom = (roomId, newParticipant) => {
   };
   activeRooms.push(updatedRoom);
 
-  console.log(activeRooms);
 };
 
 const leaveActiveRoom = (roomId, participantSocketId) => {
@@ -109,8 +112,8 @@ const leaveActiveRoom = (roomId, participantSocketId) => {
 
     activeRooms = activeRooms.filter((room) => room.roomId !== roomId);
 
-    if(copyOfActiveRoom.participants.length > 0){
-        activeRooms.push(copyOfActiveRoom);
+    if (copyOfActiveRoom.participants.length > 0) {
+      activeRooms.push(copyOfActiveRoom);
     }
   }
 };

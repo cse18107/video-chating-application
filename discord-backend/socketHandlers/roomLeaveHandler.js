@@ -15,8 +15,8 @@ const roomLeaveHandler = (socket,data) => {
             updatedActiveRoom.participants.forEach(participant =>{
                 socket.to(participant.socketId).emit('room-participant-left',{
                     connUserSocketId: socket.id,
-                })
-            })
+                });
+            });
         }
 
         roomUpdate.updateRooms();

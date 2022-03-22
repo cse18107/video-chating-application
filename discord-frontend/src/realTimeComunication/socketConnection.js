@@ -72,6 +72,11 @@ export const connectWithSocketServer = (userDetails) => {
   socket.on('room-participant-left',(data)=>{
     console.log('user left room');
     webRTCHandler.handleParticipantLeftRoom(data);
+  });
+
+  socket.on('room-participant-left',(data)=> {
+    console.log('user left room ');
+    webRTCHandler.handleParticipantLeftRoom(data);
   })
 
 };
