@@ -12,6 +12,7 @@ const getSocketServerInstance = () => {
   return io;
 };
 
+
 const addNewConnectedUser = ({ socketId, userId }) => {
   connectedUsers.set(socketId, { userId });
   console.log("new Connected users");
